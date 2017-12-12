@@ -42,6 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\BeverageItem.cs" />
+    <Compile Include="ConcreteComponent\Cocoa.cs" />
+    <Compile Include="ConcreteComponent\DarkCoffee.cs" />
+    <Compile Include="ConcreteComponent\Latte.cs" />
+    <Compile Include="AbstractDecorator\Decorator.cs" />
+    <Compile Include="ConcreteDecorator\SugarDecorator.cs" />
+    <Compile Include="ConcreteDecorator\ToppingsDecorator.cs" />
+    <Compile Include="Helper\Extensions.cs" />
+    <Compile Include="Helper\ToppingHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
