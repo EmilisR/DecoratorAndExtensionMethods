@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DecoratorPattern.AbstractDecorator.Decorator" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAEAAAAAAEAAAAAAAAAIAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractDecorator\Decorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DecoratorPattern.Component.BeverageItem" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAMAEAAQAgAEAAAAAAAAQAAAAAAIAAAAAAAAAAAQA=</HashCode>
+      <FileName>Component\BeverageItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DecoratorPattern.ConcreteComponent.Cocoa" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAEAAAAAAEAAAAAAAAAAAAAIAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConcreteComponent\Cocoa.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DecoratorPattern.ConcreteComponent.DarkCoffee" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAEAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAE=</HashCode>
+      <FileName>ConcreteComponent\DarkCoffee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DecoratorPattern.ConcreteComponent.Latte" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAEAAAAAAEAAABAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConcreteComponent\Latte.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DecoratorPattern.ConcreteDecorator.SugarDecorator" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAMAFAAAAEAAAAAIQAAAAAAAAJQAAQABAAAAAAA=</HashCode>
+      <FileName>ConcreteDecorator\SugarDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DecoratorPattern.ConcreteDecorator.ToppingsDecorator" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAEAAAAAAEAAAAAAQAAEAAAAAIAAAQQAAAAAAAA=</HashCode>
+      <FileName>ConcreteDecorator\ToppingsDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
