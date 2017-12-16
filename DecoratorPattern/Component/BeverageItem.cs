@@ -29,5 +29,8 @@ namespace DecoratorPattern.Component
         }
 
         public abstract void MakeDrink();
+        public abstract BeverageItem GetBeverageItem();
+        public abstract bool CheckRole(Type type);
+        public abstract BeverageItem GetRole(Type type);
     }
 }

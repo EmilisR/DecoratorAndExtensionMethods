@@ -9,10 +9,12 @@ namespace DecoratorPattern.ConcreteDecorator
         private int _sugar;
         private decimal _sugarPrice;
         private BeverageItem _beverageItem;
+        private BeverageItem _baseItem;
 
         public SugarDecorator(BeverageItem beverageItem, decimal sugarPrice) : base(beverageItem)
         {
             _beverageItem = beverageItem;
+            _baseItem = GetBeverageItem();
             _sugarPrice = sugarPrice;
         }
 
@@ -50,9 +52,9 @@ namespace DecoratorPattern.ConcreteDecorator
             _sugar = 5;
         }
 
-        public void AddSugarPrice()
+        private void AddSugarPrice()
         {
-            _beverageItem.Price += _sugarPrice * _sugar;
+            _baseItem.Price += _sugarPrice * _sugar;
         }
 
         public override void MakeDrink()
@@ -61,6 +63,32 @@ namespace DecoratorPattern.ConcreteDecorator
             base.MakeDrink();
 
             Console.WriteLine($"Sugar amount: {_sugar}");
+        }
+
+        public override BeverageItem GetBeverageItem()
+        {
+            if (this.beverageItem.GetType().Namespace == "DecoratorPattern.ConcreteComponent")
+            {
+                return this.beverageItem;
+            }
+            else
+                return base.GetBeverageItem();
+        }
+
+        public override bool CheckRole(Type type)
+        {
+            if (type == this.GetType())
+                return true;
+            else
+                return _beverageItem.CheckRole(type);
+        }
+
+        public override BeverageItem GetRole(Type type)
+        {
+            if (type == this.GetType())
+                return this;
+            else
+                return base.GetRole(type);
         }
     }
 }

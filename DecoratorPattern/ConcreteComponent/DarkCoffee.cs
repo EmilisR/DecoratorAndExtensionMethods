@@ -26,5 +26,20 @@ namespace DecoratorPattern.ConcreteComponent
             Console.WriteLine($"Coffee type: {type}");
             Console.WriteLine($"Total price: {this.Price} EUR");
         }
+
+        public override BeverageItem GetBeverageItem()
+        {
+            return this;
+        }
+
+        public override bool CheckRole(Type type)
+        {
+            return type == this.GetType();
+        }
+
+        public override BeverageItem GetRole(Type type)
+        {
+            return this;
+        }
     }
 }

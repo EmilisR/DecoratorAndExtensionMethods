@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DecoratorPattern.Helper;
 
 namespace DecoratorPattern
 {
@@ -12,15 +13,20 @@ namespace DecoratorPattern
     {
         static void Main(string[] args)
         {
-            Latte latte = new Latte(45, 1.89M, 45, "Coffee with milk");
-            latte.MakeDrink();
-            Console.WriteLine();
+            ToppingsDecorator toppingsDecorator = new ToppingsDecorator(new SugarDecorator(new Cocoa(15, 1.59M, 30, "Cocoa"), 0.05M));
+            //sugarDecorator.AddSugar(3);
 
-            Cocoa cocoa = new Cocoa(15, 1.59M, 30, "Cocoa");
-            SugarDecorator sugarDecorator = new SugarDecorator(cocoa, 0.05M);
-            sugarDecorator.AddSugar(4);
-            ToppingsDecorator toppingsDecorator = new ToppingsDecorator(sugarDecorator);
-            toppingsDecorator.AddTopping(Helper.ToppingHelper.Topping.Cinamon);
+            if (toppingsDecorator.CheckRole(typeof(SugarDecorator)))
+            {
+                var item = (SugarDecorator)toppingsDecorator.GetRole(typeof(SugarDecorator));
+                item.AddSugar(3);
+            }
+
+            toppingsDecorator.AddTopping(new ToppingHelper.Topping[]
+            {
+                ToppingHelper.Topping.Cream,
+                ToppingHelper.Topping.Chocolate
+            });
             toppingsDecorator.MakeDrink();
             Console.ReadKey();
         }
