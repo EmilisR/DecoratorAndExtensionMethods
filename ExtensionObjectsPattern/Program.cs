@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DecoratorPattern.Component;
+using DecoratorPattern.ConcreteComponent;
+using DecoratorPattern.ConcreteExtension;
+using DecoratorPattern.Extension;
+using System;
 
 namespace DecoratorPattern
 {
@@ -10,7 +10,20 @@ namespace DecoratorPattern
     {
         static void Main(string[] args)
         {
-            
+            BeverageItem drink = new Cocoa(1.75M, 40, "Cocoa");
+
+            IBeverageExtension sugar = new SugarExtension();
+
+            drink.RegisterExtension(sugar);
+
+            drink.GetInfo();
+
+            //drink.UnregisterExtension(sugar);
+
+            //drink.GetInfo();
+
+            //Console.WriteLine($"Turi sugar?: {drink.HasExtension(sugar)}");
+
             Console.ReadKey();
         }
     }

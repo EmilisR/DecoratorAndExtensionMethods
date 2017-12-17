@@ -12,11 +12,11 @@ namespace DecoratorPattern.ConcreteDecorator
 {
     class ToppingsDecorator : Decorator
     {
-        private BeverageItem _beverageItem;
-        private BeverageItem _baseItem;
+        private IBeverageItem _beverageItem;
+        private IBeverageItem _baseItem;
         private List<ToppingHelper.Topping> toppings = new List<ToppingHelper.Topping>();
 
-        public ToppingsDecorator(BeverageItem beverageItem) : base(beverageItem)
+        public ToppingsDecorator(IBeverageItem beverageItem) : base(beverageItem)
         {
             _beverageItem = beverageItem;
             _baseItem = GetBeverageItem();
@@ -25,7 +25,7 @@ namespace DecoratorPattern.ConcreteDecorator
         public void AddTopping(params ToppingHelper.Topping[] topping)
         {
             toppings.AddRange(topping);
-            _baseItem.Price += topping.Select(x => ToppingHelper.ToppingPrices[x]).Sum();
+            AddToPrice(topping.Select(x => ToppingHelper.ToppingPrices[x]).Sum());
         }
 
         public override void MakeDrink()
@@ -46,7 +46,7 @@ namespace DecoratorPattern.ConcreteDecorator
             }
         }
 
-        public override BeverageItem GetBeverageItem()
+        public override IBeverageItem GetBeverageItem()
         {
             if (_beverageItem.GetType().Namespace == "DecoratorPattern.ConcreteComponent")
             {
@@ -64,12 +64,22 @@ namespace DecoratorPattern.ConcreteDecorator
                 return _beverageItem.CheckRole(type);
         }
 
-        public override BeverageItem GetRole(Type type)
+        public override IBeverageItem GetRole(Type type)
         {
             if (type == this.GetType())
                 return this;
             else
                 return base.GetRole(type);
+        }
+
+        public override decimal GetPrice()
+        {
+            return base.GetPrice();
+        }
+
+        public override void AddToPrice(decimal price)
+        {
+            base.AddToPrice(price);
         }
     }
 }

@@ -1,39 +1,45 @@
 ﻿using DecoratorPattern.Component;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DecoratorPattern.AbstractDecorator
 {
-    abstract class Decorator : BeverageItem
+    abstract class Decorator : IBeverageItem
     {
-        protected BeverageItem beverageItem;
+        protected IBeverageItem beverageItem;
 
-        public Decorator(BeverageItem beverageItem)
+        public Decorator(IBeverageItem beverageItem)
         {
             this.beverageItem = beverageItem;
         }
 
-        public override void MakeDrink()
+        public virtual void MakeDrink()
         {
             beverageItem.MakeDrink();
         }
 
-        public override BeverageItem GetBeverageItem()
+        public virtual IBeverageItem GetBeverageItem()
         {
             return beverageItem.GetBeverageItem();
         }
 
-        public override bool CheckRole(Type type)
+        public virtual bool CheckRole(Type type)
         {
             return beverageItem.CheckRole(type);
         }
 
-        public override BeverageItem GetRole(Type type)
+        public virtual IBeverageItem GetRole(Type type)
         {
             return beverageItem.GetRole(type);
+        }
+
+        public virtual decimal GetPrice()
+        {
+            return beverageItem.GetPrice();
+        }
+
+        public virtual void AddToPrice(decimal price)
+        {
+            beverageItem.AddToPrice(price);
         }
     }
 }

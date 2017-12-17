@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DecoratorPattern.Helper
 {
-    public class ToppingHelper
+    public static class ToppingHelper
     {
         public static Dictionary<Topping, decimal> ToppingPrices = new Dictionary<Topping, decimal>()
         {

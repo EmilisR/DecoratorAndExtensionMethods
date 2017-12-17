@@ -1,44 +1,53 @@
 ﻿using DecoratorPattern.Component;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DecoratorPattern.ConcreteComponent
 {
-    class Latte : BeverageItem
+    class Latte : IBeverageItem
     {
-        private int _coffeePercentage;
+        public decimal Price { get; private set; }
+        public int Time { get; private set; }
+        public string Name { get; private set; }
+        public int CoffeePercentage { get; private set; }
 
-        public Latte(int coffeePercentage, decimal price, int time, string name)
+        public Latte()
         {
-            this._coffeePercentage = coffeePercentage;
-            this.Price = price;
-            this.Time = time;
-            this.Name = name;
+            CoffeePercentage = 60;
+            Price = 2.19M;
+            Time = 50;
+            Name = "Coffee with milk";
         }
-        public override void MakeDrink()
+        public void MakeDrink()
         {
-            Console.WriteLine($"Making drink: {this.Name}");
-            Console.WriteLine($"Making time: {this.Time} seconds");
-            Console.WriteLine($"Cocoa percentage: {this._coffeePercentage}%");
-            Console.WriteLine($"Total price: {this.Price} EUR");
+            Console.WriteLine($"Making drink: {Name}");
+            Console.WriteLine($"Making time: {Time} seconds");
+            Console.WriteLine($"Cocoa percentage: {CoffeePercentage}%");
+            Console.WriteLine($"Total price: {Price} EUR");
         }
 
-        public override BeverageItem GetBeverageItem()
+        public IBeverageItem GetBeverageItem()
         {
             return this;
         }
 
-        public override bool CheckRole(Type type)
+        public bool CheckRole(Type type)
         {
-            return type == this.GetType();
+            return type == GetType();
         }
 
-        public override BeverageItem GetRole(Type type)
+        public IBeverageItem GetRole(Type type)
         {
-            return this;
+            return GetBeverageItem();
+        }
+
+        public decimal GetPrice()
+        {
+            return Price;
+        }
+
+        public void AddToPrice(decimal price)
+        {
+            Price += price;
         }
     }
 }
