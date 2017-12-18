@@ -1,9 +1,4 @@
 ﻿using DecoratorPattern.Extension;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DecoratorPattern.ConcreteExtension
 {
@@ -22,7 +17,6 @@ namespace DecoratorPattern.ConcreteExtension
             if (_sugar < 5)
             {
                 _sugar++;
-                //AddToPrice(_sugarPrice * _sugar);
             }
 
         }
@@ -32,7 +26,6 @@ namespace DecoratorPattern.ConcreteExtension
             if (_sugar + amount <= 5)
             {
                 _sugar += amount;
-                //AddToPrice(_sugarPrice * _sugar);
             }
 
         }
@@ -42,13 +35,12 @@ namespace DecoratorPattern.ConcreteExtension
             if (_sugar - amount >= 0)
             {
                 _sugar -= amount;
-                //AddToPrice(_sugarPrice * amount * -1);
             }
         }
 
         public decimal ModifyPrice(decimal price)
         {
-            return price += 0.05M;
+            return price += (_sugarPrice * _sugar);
         }
 
         public string GetInfo()

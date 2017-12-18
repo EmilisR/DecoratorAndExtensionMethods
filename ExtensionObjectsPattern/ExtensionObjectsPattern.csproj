@@ -47,7 +47,10 @@
     <Compile Include="ConcreteComponent\DarkCoffee.cs" />
     <Compile Include="ConcreteComponent\Latte.cs" />
     <Compile Include="ConcreteExtension\SugarExtension.cs" />
+    <Compile Include="ConcreteExtension\ToppingsExtension.cs" />
     <Compile Include="Extension\IBeverageExtension.cs" />
+    <Compile Include="Helper\Extensions.cs" />
+    <Compile Include="Helper\ToppingHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
