@@ -29,7 +29,7 @@ namespace DecoratorPattern.Component
             return modifiedPrice;
         }
 
-        public void GetInfo()
+        public virtual void GetInfo()
         {
             Console.WriteLine($"Making drink: {_name}");
             Console.WriteLine($"Making time: {_time} seconds");
@@ -42,7 +42,7 @@ namespace DecoratorPattern.Component
 
         public void RegisterExtension(IBeverageExtension extension)
         {
-            string extensionName = extension.GetType().FullName;
+            string extensionName = extension.GetType().Name;
             if (!_extensions.ContainsKey(extensionName))
                 _extensions.Add(extensionName, extension);
             else
@@ -60,6 +60,11 @@ namespace DecoratorPattern.Component
         public bool HasExtension(IBeverageExtension extension)
         {
             return _extensions.ContainsValue(extension);
+        }
+
+        public IBeverageExtension GetExtension(string extension)
+        {
+            return _extensions[extension];
         }
     }
 }

@@ -2,6 +2,7 @@
 using DecoratorPattern.ConcreteComponent;
 using DecoratorPattern.ConcreteExtension;
 using DecoratorPattern.Extension;
+using DecoratorPattern.Helper;
 using System;
 
 namespace DecoratorPattern
@@ -10,14 +11,25 @@ namespace DecoratorPattern
     {
         static void Main(string[] args)
         {
-            BeverageItem drink = new Cocoa();
+            BeverageItem drink = new Latte();
 
             IBeverageExtension sugar = new SugarExtension();
+            IBeverageExtension toppings = new ToppingsExtension();
             drink.RegisterExtension(sugar);
-            
+            drink.RegisterExtension(toppings);
+
             if (drink.HasExtension(sugar))
             {
-                ((SugarExtension)sugar).AddSugar(3);
+                ((SugarExtension)drink.GetExtension("SugarExtension")).AddSugar(3);
+            }
+
+            if (drink.HasExtension(toppings))
+            {
+                ((ToppingsExtension)drink.GetExtension("ToppingsExtension")).AddTopping(new ToppingHelper.Topping[]
+                    {
+                        ToppingHelper.Topping.Caramel,
+                        ToppingHelper.Topping.Chocolate
+                    });
             }
 
             drink.GetInfo();

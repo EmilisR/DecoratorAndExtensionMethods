@@ -1,50 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
   <Class Name="DecoratorPattern.Component.BeverageItem" Collapsed="true">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+    <Position X="8.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAIAAAAAAgAEAAEAAkAAAABAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAIAAAAAAgAEAAEAAkAAAABAAAAEABAAAAAAAAAAA=</HashCode>
       <FileName>Component\BeverageItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DecoratorPattern.ConcreteComponent.Cocoa" Collapsed="true">
-    <Position X="2.75" Y="1.75" Width="1.5" />
+    <Position X="8.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>ConcreteComponent\Cocoa.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DecoratorPattern.ConcreteComponent.DarkCoffee" Collapsed="true">
-    <Position X="5" Y="1.75" Width="1.5" />
+    <Position X="10.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>ConcreteComponent\DarkCoffee.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DecoratorPattern.ConcreteComponent.Latte" Collapsed="true">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Position X="6" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>ConcreteComponent\Latte.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DecoratorPattern.ConcreteExtension.SugarExtension" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIABAAAAAAAAAAAAAAAAAAAAFACAAABAAAAAAA=</HashCode>
       <FileName>ConcreteExtension\SugarExtension.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Orientation="Left" Position="0.1" />
   </Class>
-  <Class Name="DecoratorPattern.Program" Collapsed="true">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+  <Class Name="DecoratorPattern.ConcreteExtension.ToppingsExtension" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAEACAAQAAAAAAAA=</HashCode>
+      <FileName>ConcreteExtension\ToppingsExtension.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Orientation="Right" Position="0.1" />
   </Class>
   <Interface Name="DecoratorPattern.Extension.IBeverageExtension" Collapsed="true">
-    <Position X="7.5" Y="1.75" Width="1.5" />
+    <Position X="8.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEACAAAAAAAAAAA=</HashCode>
       <FileName>Extension\IBeverageExtension.cs</FileName>

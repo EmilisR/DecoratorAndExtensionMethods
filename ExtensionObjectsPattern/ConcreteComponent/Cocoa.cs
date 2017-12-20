@@ -1,9 +1,5 @@
 ﻿using DecoratorPattern.Component;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DecoratorPattern.ConcreteComponent
 {
@@ -14,6 +10,12 @@ namespace DecoratorPattern.ConcreteComponent
         public Cocoa() : base(1.75M, 30, "Cocoa")
         {
             CocoaPercentage = 15;
+        }
+
+        public override void GetInfo()
+        {
+            base.GetInfo();
+            Console.WriteLine($"Cocoa percentage: {CocoaPercentage}%");
         }
     }
 }
