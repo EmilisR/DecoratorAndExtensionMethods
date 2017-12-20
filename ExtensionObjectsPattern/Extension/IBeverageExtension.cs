@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DecoratorPattern.Extension
+﻿namespace DecoratorPattern.Extension
 {
     interface IBeverageExtension
     {
