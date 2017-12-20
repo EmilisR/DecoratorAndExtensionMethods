@@ -2,6 +2,8 @@
 using DecoratorPattern.ConcreteDecorator;
 using System;
 using DecoratorPattern.Helper;
+using DecoratorPattern.AbstractDecorator;
+using DecoratorPattern.Component;
 
 namespace DecoratorPattern
 {
@@ -9,21 +11,39 @@ namespace DecoratorPattern
     {
         static void Main(string[] args)
         {
-            ToppingsDecorator toppingsDecorator = new ToppingsDecorator(new SugarDecorator(new Cocoa()));
-            //sugarDecorator.AddSugar(3);
+            Decorator decorator = new ToppingsDecorator(new SugarDecorator(new Cocoa()));
+            IBeverageItem baseItem = null;
+            var removed = decorator.RemoveRole("ToppingsDecorator");
+            if (removed is Decorator)
+                decorator = (Decorator)removed;
+            else if (removed is IBeverageItem)
+                baseItem = decorator.RemoveRole("ToppingsDecorator");
 
-            if (toppingsDecorator.CheckRole(typeof(SugarDecorator)))
+            removed = decorator.RemoveRole("SugarDecorator");
+            if (removed is Decorator)
+                decorator = (Decorator)removed;
+            else if (removed is IBeverageItem)
+                baseItem = decorator.RemoveRole("SugarDecorator");
+
+
+            if (baseItem == null && decorator.CheckRole("SugarDecorator"))
             {
-                var item = (SugarDecorator)toppingsDecorator.GetRole(typeof(SugarDecorator));
+                var item = (SugarDecorator)decorator.GetRole("SugarDecorator");
                 item.AddSugar(3);
             }
 
-            toppingsDecorator.AddTopping(new ToppingHelper.Topping[]
+            if (baseItem == null && decorator.CheckRole("ToppingsDecorator"))
             {
-                ToppingHelper.Topping.Cream,
-                ToppingHelper.Topping.Chocolate
-            });
-            toppingsDecorator.MakeDrink();
+                ((ToppingsDecorator)decorator).AddTopping(new ToppingHelper.Topping[]
+                {
+                    ToppingHelper.Topping.Cream,
+                    ToppingHelper.Topping.Chocolate
+                });
+            }
+            if (baseItem != null)
+                baseItem.MakeDrink();
+            else
+                decorator.MakeDrink();
             Console.ReadKey();
         }
     }

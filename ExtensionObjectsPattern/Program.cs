@@ -10,11 +10,15 @@ namespace DecoratorPattern
     {
         static void Main(string[] args)
         {
-            BeverageItem drink = new Cocoa(1.75M, 40, "Cocoa");
+            BeverageItem drink = new Cocoa();
 
             IBeverageExtension sugar = new SugarExtension();
-
             drink.RegisterExtension(sugar);
+            
+            if (drink.HasExtension(sugar))
+            {
+                ((SugarExtension)sugar).AddSugar(3);
+            }
 
             drink.GetInfo();
 

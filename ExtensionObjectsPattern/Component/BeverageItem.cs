@@ -37,7 +37,7 @@ namespace DecoratorPattern.Component
             {
                 Console.WriteLine(extension.GetInfo());
             }
-            Console.WriteLine($"Total price: {_price} EUR");
+            Console.WriteLine($"Total price: {GetPrice()} EUR");
         }
 
         public void RegisterExtension(IBeverageExtension extension)

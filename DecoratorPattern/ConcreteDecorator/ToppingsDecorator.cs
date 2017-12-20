@@ -13,13 +13,11 @@ namespace DecoratorPattern.ConcreteDecorator
     class ToppingsDecorator : Decorator
     {
         private IBeverageItem _beverageItem;
-        private IBeverageItem _baseItem;
         private List<ToppingHelper.Topping> toppings = new List<ToppingHelper.Topping>();
 
-        public ToppingsDecorator(IBeverageItem beverageItem) : base(beverageItem)
+        public ToppingsDecorator(IBeverageItem beverageItem) : base(beverageItem, "ToppingsDecorator")
         {
             _beverageItem = beverageItem;
-            _baseItem = GetBeverageItem();
         }
 
         public void AddTopping(params ToppingHelper.Topping[] topping)
@@ -44,32 +42,6 @@ namespace DecoratorPattern.ConcreteDecorator
                     writedToppings++;
                 }
             }
-        }
-
-        public override IBeverageItem GetBeverageItem()
-        {
-            if (_beverageItem.GetType().Namespace == "DecoratorPattern.ConcreteComponent")
-            {
-                return _beverageItem;
-            }
-            else
-                return base.GetBeverageItem();
-        }
-
-        public override bool CheckRole(Type type)
-        {
-            if (type == this.GetType())
-                return true;
-            else
-                return _beverageItem.CheckRole(type);
-        }
-
-        public override IBeverageItem GetRole(Type type)
-        {
-            if (type == this.GetType())
-                return this;
-            else
-                return base.GetRole(type);
         }
 
         public override decimal GetPrice()

@@ -1,4 +1,5 @@
-﻿using DecoratorPattern.Component;
+﻿using DecoratorPattern.AbstractDecorator;
+using DecoratorPattern.Component;
 using System;
 
 namespace DecoratorPattern.ConcreteComponent
@@ -48,6 +49,21 @@ namespace DecoratorPattern.ConcreteComponent
         public void AddToPrice(decimal price)
         {
             Price += price;
+        }
+
+        public IBeverageItem GetBase()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CheckRole(string role)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Decorator GetRole(string role)
+        {
+            throw new NotImplementedException();
         }
     }
 }

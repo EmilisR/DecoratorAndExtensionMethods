@@ -9,8 +9,11 @@ namespace DecoratorPattern.ConcreteComponent
 {
     class Cocoa : BeverageItem
     {
-        public Cocoa(decimal price, int time, string name) : base(price, time, name)
+        public int CocoaPercentage { get; set; }
+
+        public Cocoa() : base(1.75M, 30, "Cocoa")
         {
+            CocoaPercentage = 15;
         }
     }
 }

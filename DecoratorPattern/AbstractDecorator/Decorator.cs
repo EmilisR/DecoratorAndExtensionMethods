@@ -6,10 +6,11 @@ namespace DecoratorPattern.AbstractDecorator
     abstract class Decorator : IBeverageItem
     {
         protected IBeverageItem beverageItem;
-
-        public Decorator(IBeverageItem beverageItem)
+        private string roleName;
+        public Decorator(IBeverageItem beverageItem, string roleName)
         {
             this.beverageItem = beverageItem;
+            this.roleName = roleName;
         }
 
         public virtual void MakeDrink()
@@ -17,19 +18,42 @@ namespace DecoratorPattern.AbstractDecorator
             beverageItem.MakeDrink();
         }
 
-        public virtual IBeverageItem GetBeverageItem()
+
+        public bool CheckRole(string role)
         {
-            return beverageItem.GetBeverageItem();
+            return GetRole(role) != null;
         }
 
-        public virtual bool CheckRole(Type type)
+        public IBeverageItem GetBase()
         {
-            return beverageItem.CheckRole(type);
+            if (beverageItem is Decorator decorator)
+                return decorator.GetBase();
+            return beverageItem;
         }
 
-        public virtual IBeverageItem GetRole(Type type)
+        public Decorator GetRole(string role)
         {
-            return beverageItem.GetRole(type);
+            if (roleName.Equals(role))
+                return this;
+            if (beverageItem is Decorator decorator)
+                return decorator.GetRole(role);
+            return null;
+        }
+
+        public IBeverageItem RemoveRole(string role)
+        {
+            if (roleName == role)
+                return beverageItem;
+            if (beverageItem is Decorator decorator)
+            {
+                if (decorator.roleName == role)
+                {
+                    beverageItem = decorator.beverageItem;
+                    return this;
+                }
+                decorator.RemoveRole(role);
+            }
+            return this;
         }
 
         public virtual decimal GetPrice()

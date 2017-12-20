@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DecoratorPattern.AbstractDecorator;
+using System;
 
 namespace DecoratorPattern.Component
 {
@@ -7,8 +8,5 @@ namespace DecoratorPattern.Component
         decimal GetPrice();
         void MakeDrink();
         void AddToPrice(decimal price);
-        IBeverageItem GetBeverageItem();
-        bool CheckRole(Type type);
-        IBeverageItem GetRole(Type type);
     }
 }

@@ -22,7 +22,6 @@ namespace DecoratorPattern.ConcreteExtension
             if (_sugar < 5)
             {
                 _sugar++;
-                //AddToPrice(_sugarPrice * _sugar);
             }
 
         }
@@ -32,7 +31,6 @@ namespace DecoratorPattern.ConcreteExtension
             if (_sugar + amount <= 5)
             {
                 _sugar += amount;
-                //AddToPrice(_sugarPrice * _sugar);
             }
 
         }
@@ -42,13 +40,12 @@ namespace DecoratorPattern.ConcreteExtension
             if (_sugar - amount >= 0)
             {
                 _sugar -= amount;
-                //AddToPrice(_sugarPrice * amount * -1);
             }
         }
 
         public decimal ModifyPrice(decimal price)
         {
-            return price += 0.05M;
+            return price += (_sugar * _sugarPrice);
         }
 
         public string GetInfo()
